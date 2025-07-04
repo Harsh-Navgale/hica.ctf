@@ -1,0 +1,15 @@
+// prisma/schema.prisma
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model EarlyAccess {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  createdAt DateTime @default(now())
+}
